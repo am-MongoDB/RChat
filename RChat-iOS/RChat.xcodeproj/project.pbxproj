@@ -11,6 +11,9 @@
 		0A28D33A258B9ABC005D68E3 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0A28D339258B9ABC005D68E3 /* RealmSwift */; };
 		0A4EA3B4258D32960003F0E4 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4EA3B3258D32960003F0E4 /* CheckBox.swift */; };
 		0A87398825C9BECD0038F2FE /* ChatRoomBubblesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A87398725C9BECD0038F2FE /* ChatRoomBubblesView.swift */; };
+		0AB9A02B25F90C1000E95AD5 /* WrappedLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB9A02A25F90C1000E95AD5 /* WrappedLoginView.swift */; };
+		0AB9A02D25F915A400E95AD5 /* SetUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB9A02C25F915A400E95AD5 /* SetUserView.swift */; };
+		0AB9A03325FA4C2200E95AD5 /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB9A03225FA4C2200E95AD5 /* PersonView.swift */; };
 		0AD0C7F825D4418A00C2A44D /* SaveConversationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD0C7F725D4418A00C2A44D /* SaveConversationButton.swift */; };
 		0AEBFBFE25D2DF1A0003D631 /* AuthorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEBFBFD25D2DF1A0003D631 /* AuthorView.swift */; };
 		49012A2F256BEA4C00C3614B /* RChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49012A2E256BEA4C00C3614B /* RChatApp.swift */; };
@@ -100,6 +103,9 @@
 		0A3520E125949D00006DCC46 /* RChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RChat.entitlements; sourceTree = "<group>"; };
 		0A4EA3B3258D32960003F0E4 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		0A87398725C9BECD0038F2FE /* ChatRoomBubblesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomBubblesView.swift; sourceTree = "<group>"; };
+		0AB9A02A25F90C1000E95AD5 /* WrappedLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappedLoginView.swift; sourceTree = "<group>"; };
+		0AB9A02C25F915A400E95AD5 /* SetUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetUserView.swift; sourceTree = "<group>"; };
+		0AB9A03225FA4C2200E95AD5 /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
 		0AD0C7F725D4418A00C2A44D /* SaveConversationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveConversationButton.swift; sourceTree = "<group>"; };
 		0AEBFBFD25D2DF1A0003D631 /* AuthorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorView.swift; sourceTree = "<group>"; };
 		0DD53676A72DF2CD401CD75D /* Pods_RChat_RChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RChat_RChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -322,6 +328,7 @@
 				49012B03256C239C00C3614B /* User Accounts & Profile */,
 				499E1E94256ED5F30036614F /* Conversations */,
 				499E1E95256ED60F0036614F /* Chat Messages */,
+				0AB9A03225FA4C2200E95AD5 /* PersonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -363,6 +370,8 @@
 				49012B6F256D527800C3614B /* SetProfileView.swift */,
 				49012B88256D89F100C3614B /* UserAvatarView.swift */,
 				49012BA4256E83EB00C3614B /* OnlineAlertSettings.swift */,
+				0AB9A02A25F90C1000E95AD5 /* WrappedLoginView.swift */,
+				0AB9A02C25F915A400E95AD5 /* SetUserView.swift */,
 			);
 			path = "User Accounts & Profile";
 			sourceTree = "<group>";
@@ -673,6 +682,7 @@
 				49CF1C9325791C3000DF251E /* ButtonTemplate.swift in Sources */,
 				49012A6F256BECF200C3614B /* PreviewHelpers.swift in Sources */,
 				49012B7E256D841900C3614B /* LocationHelper.swift in Sources */,
+				0AB9A02D25F915A400E95AD5 /* SetUserView.swift in Sources */,
 				49012B5D256D2D9700C3614B /* PhotoFullSizeView.swift in Sources */,
 				49012B70256D527800C3614B /* SetProfileView.swift in Sources */,
 				49012BA5256E83EB00C3614B /* OnlineAlertSettings.swift in Sources */,
@@ -695,6 +705,7 @@
 				496F1ABB2577D9C700B946A9 /* ChatInputBox.swift in Sources */,
 				4910B02C257FF91F00F274F0 /* SearchBox.swift in Sources */,
 				4950E108256FD61400FA7E26 /* ConversationCardContentsView.swift in Sources */,
+				0AB9A03325FA4C2200E95AD5 /* PersonView.swift in Sources */,
 				49012B12256C240F00C3614B /* LogoutButton.swift in Sources */,
 				49012B93256D8DB000C3614B /* ThumbnailPhotoView.swift in Sources */,
 				49012ABD256BEF8000C3614B /* LabeledButton.swift in Sources */,
@@ -719,6 +730,7 @@
 				49012B40256D154400C3614B /* AvatarThumbNailView.swift in Sources */,
 				49012AA6256BEEFA00C3614B /* InputField.swift in Sources */,
 				49012B05256C23CB00C3614B /* LoginView.swift in Sources */,
+				0AB9A02B25F90C1000E95AD5 /* WrappedLoginView.swift in Sources */,
 				491269AF25822D800083C817 /* MapThumbnailWithExpand.swift in Sources */,
 				49CF1C992579246600DF251E /* CameraButton.swift in Sources */,
 				49012A2F256BEA4C00C3614B /* RChatApp.swift in Sources */,

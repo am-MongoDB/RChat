@@ -37,7 +37,7 @@ struct ContentView: View {
                             )
                         }
                     } else {
-                        LoginView()
+                        WrappedLoginView(app: app)
                     }
                     Spacer()
                     if let error = state.error {

@@ -19,7 +19,9 @@ struct LogoutButton: View {
             state.shouldIndicateActivity = true
             do {
                 try userRealm.write {
-                    state.user?.presenceState = .offLine
+                    print("About to set presence to offLine")
+                    state.user?.thaw()?.presenceState = .offLine
+                    print("Set presence to offLine")
                 }
             } catch {
                 state.error = "Unable to open Realm write transaction"

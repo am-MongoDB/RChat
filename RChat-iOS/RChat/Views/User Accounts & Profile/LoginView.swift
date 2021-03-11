@@ -94,9 +94,9 @@ struct LoginView: View {
                 case .failure(let error):
                     self.state.error = error.localizedDescription
                 }
-            }, receiveValue: {
+            }, receiveValue: { _ in
                 self.state.error = nil
-                state.loginPublisher.send($0)
+//                state.loginPublisher.send($0)
             })
             .store(in: &state.cancellables)
     }
