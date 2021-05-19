@@ -41,9 +41,23 @@ struct LoginView: View {
             
             Spacer()
         }
+        .onAppear(perform: anonymousLogin)
         .padding(.horizontal, Dimensions.padding)
         .navigationBarTitle("Log In", displayMode: .inline)
         .navigationBarItems(trailing: EmptyView())
+    }
+    
+    private func anonymousLogin() {
+        let anonymousCredentials = Credentials.anonymous
+        challengeApp.login(credentials: anonymousCredentials) { (result) in
+            switch result {
+            case .failure(let error):
+                print("Login failed: \(error.localizedDescription)")
+            case .success(let user):
+                print("Successfully logged in as user \(user)")
+            }
+        }
+
     }
     
     private func userAction(username: String, password: String) {

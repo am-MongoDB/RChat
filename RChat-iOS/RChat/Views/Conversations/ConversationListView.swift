@@ -14,8 +14,13 @@ struct ConversationListView: View {
     
     var isPreview = false
     
+//    @StateObject var challengeConversation = Conversation(
+//        displayName: "Detectivea",
+//        unreadCount: 0,
+//        members: [Member(userName: "Cluso", state: .active)])
     @State private var conversation: Conversation?
     @State var showConversation = false
+    @State var showChallengeConversation = false
     @State var showingAddChat = false
     
     private let animationDuration = 0.5
@@ -34,6 +39,9 @@ struct ConversationListView: View {
                             showConversation.toggle()
                         }) { ConversationCardView(conversation: conversation, isPreview: isPreview) }
                     }
+                    Button(action: {
+                        showChallengeConversation.toggle()
+                    }) { ChallengeConversationCardContentsView() }
                 }
                 .animation(.easeIn(duration: animationDuration))
                 Button(action: { showingAddChat.toggle() }) {
@@ -53,6 +61,10 @@ struct ConversationListView: View {
                             .environment(\.realmConfiguration, app.currentUser!.configuration(partitionValue: "user=\(user._id)")),
                         isActive: $showConversation) { EmptyView() }
                 }
+                NavigationLink(
+                    destination: ChallengeChatRoomView(),
+//                        .environment(\.realmConfiguration, app.currentUser!.configuration(partitionValue: "user=\(user._id)")),
+                    isActive: $showChallengeConversation) { EmptyView() }
             }
         }
         .sheet(isPresented: $showingAddChat) {
