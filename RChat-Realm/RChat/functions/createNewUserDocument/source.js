@@ -5,7 +5,7 @@ exports = function({user}) {
   const partition = `user=${user.id}`;
   const defaultLocation = context.values.get("defaultLocation");
   const userPreferences = {
-    displayName: ""
+    displayName: user.data.email
   };
   
   console.log(`user: ${JSON.stringify(user)}`);

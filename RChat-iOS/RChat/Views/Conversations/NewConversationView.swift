@@ -13,6 +13,8 @@ struct NewConversationView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedResults(Chatster.self) var chatsters
     
+    @ObservedRealmObject var user: User
+    
     var isPreview = false
     
     @State private var name = ""
@@ -27,7 +29,7 @@ struct NewConversationView: View {
     private var memberList: [String] {
         candidateMember == ""
             ? chatsters.compactMap {
-                state.user?.userName != $0.userName && !members.contains($0.userName)
+                user.userName != $0.userName && !members.contains($0.userName)
                     ? $0.userName
                     : nil }
             : candidateMembers
@@ -78,14 +80,16 @@ struct NewConversationView: View {
             }
             .padding()
             .navigationBarTitle("New Chat", displayMode: .inline)
-            .navigationBarItems(trailing: VStack {
+            .navigationBarItems(
+                leading: Button("Dismiss") { presentationMode.wrappedValue.dismiss() },
+                trailing: VStack {
                 if isPreview {
-                    SaveConversationButton(name: name, members: members, done: { presentationMode.wrappedValue.dismiss() })
+                    SaveConversationButton(user: user, name: name, members: members, done: { presentationMode.wrappedValue.dismiss() })
                 } else {
-                    SaveConversationButton(name: name, members: members, done: { presentationMode.wrappedValue.dismiss() })
+                    SaveConversationButton(user: user, name: name, members: members, done: { presentationMode.wrappedValue.dismiss() })
                     .environment(
                         \.realmConfiguration,
-                        app.currentUser!.configuration(partitionValue: "user=\(state.user?._id ?? "")"))
+                        app.currentUser!.configuration(partitionValue: "user=\(user._id)"))
                 }
             }
             .disabled(isEmpty)
@@ -105,7 +109,7 @@ struct NewConversationView: View {
         }
         candidateMembers = []
         candidateChatsters.forEach { chatster in
-            if !members.contains(chatster.userName) && chatster.userName != state.user?.userName {
+            if !members.contains(chatster.userName) && chatster.userName != user.userName {
                 candidateMembers.append(chatster.userName)
             }
         }
@@ -132,7 +136,7 @@ struct NewConversationView_Previews: PreviewProvider {
         Realm.bootstrap()
         
         return AppearancePreviews(
-            NewConversationView(isPreview: true)
+            NewConversationView(user: .sample, isPreview: true)
                 .environmentObject(AppState.sample)
         )
     }

@@ -166,18 +166,11 @@ extension Chatster: Samplable {
     static var sample3: Chatster { Chatster(user: User(.sample3)) }
 }
 
-extension AppState {
-    convenience init(user: User) {
-        self.init()
-        self.user = user
-    }
-}
-
 extension AppState: Samplable {
     static var samples: [AppState] { [sample, sample2, sample3] }
-    static var sample: AppState { AppState(user: .sample) }
-    static var sample2: AppState { AppState(user: .sample2) }
-    static var sample3: AppState { AppState(user: .sample3) }
+    static var sample: AppState { AppState() }
+    static var sample2: AppState { AppState() }
+    static var sample3: AppState { AppState() }
 }
 
 extension Photo {
@@ -238,7 +231,7 @@ extension ChatMessage: Samplable {
     static var samples: [ChatMessage] { [sample, sample2, sample3, sample20, sample22, sample23, sample30, sample32, sample33] }
     static var sample: ChatMessage { ChatMessage(conversation: .sample, author: .sample) }
     static var sample2: ChatMessage { ChatMessage(conversation: .sample, author: .sample2, includePhoto: true) }
-    static var sample3: ChatMessage { ChatMessage(conversation: .sample, author: .sample3, text: "Thoughts on this spud?", includePhoto: true, includeLocation: true)}
+    static var sample3: ChatMessage { ChatMessage(conversation: .sample, author: .sample3, text: "Thoughts on this **spud**?", includePhoto: true, includeLocation: true)}
     static var sample20: ChatMessage { ChatMessage(conversation: .sample2, author: .sample) }
     static var sample22: ChatMessage { ChatMessage(conversation: .sample2, author: .sample2, includePhoto: true) }
     static var sample23: ChatMessage { ChatMessage(conversation: .sample2, author: .sample3, text: "Fancy trying this?", includePhoto: true, includeLocation: true)}

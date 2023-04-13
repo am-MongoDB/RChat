@@ -13,7 +13,6 @@ struct ChatBubbleView: View {
     let authorName: String?
     var isPreview = false
     
-    private var isLessThanOneDay: Bool { chatMessage.timestamp.timeIntervalSinceNow > -60 * 60 * 24 }
     private var isMyMessage: Bool { authorName == nil }
     
     private enum Dimensions {
@@ -36,7 +35,7 @@ struct ChatBubbleView: View {
                         }
                     }
                     Spacer()
-                    Text(chatMessage.timestamp, style: isLessThanOneDay ?  .time : .date)
+                    TextDate(date: chatMessage.timestamp)
                         .font(.caption)
                 }
                 HStack {
@@ -51,7 +50,7 @@ struct ChatBubbleView: View {
                         }
                     }
                     if chatMessage.text != "" {
-                        Text(chatMessage.text)
+                        MarkDown(text: chatMessage.text)
                         .padding(Dimensions.padding)
                     }
                     Spacer()
@@ -69,14 +68,12 @@ struct ChatBubbleView_Previews: PreviewProvider {
     static var previews: some View {
         Realm.bootstrap()
         
-        return AppearancePreviews(
-            Group {
-                ChatBubbleView(chatMessage: .sample, authorName: "jane@contoso.com", isPreview: true)
-                ChatBubbleView(chatMessage: .sample2, authorName: "freddy@contoso.com", isPreview: true)
-                ChatBubbleView(chatMessage: .sample3, authorName: nil, isPreview: true)
-                ChatBubbleView(chatMessage: .sample33, authorName: "jane@contoso.com", isPreview: true)
-            }
-        )
+        return Group {
+            ChatBubbleView(chatMessage: .sample, authorName: "jane@contoso.com", isPreview: true)
+            ChatBubbleView(chatMessage: .sample2, authorName: "freddy@contoso.com", isPreview: true)
+            ChatBubbleView(chatMessage: .sample3, authorName: nil, isPreview: true)
+            ChatBubbleView(chatMessage: .sample33, authorName: "jane@contoso.com", isPreview: true)
+        }
         .padding()
         .previewLayout(.sizeThatFits)
     }

@@ -22,9 +22,13 @@ realm-cli import # Then answer prompts, naming the app RChat
 ![Realm application Id](assets/realm-app-id.png)
 
 5. (Optional) Use `mongoimport` to import the empty database from the `dump` folder to create database indexes
-1. Open the iOS project
+1. Open the iOS project (using Xcode 13.2 or later)
 ```
 cd ../../RChat-iOS
 open RChat.xcodeproj
 ```
 7. Update `RChatApp.swift` with your Realm App Id and then build
+
+> The `new-schema` branch contains all of the iOS and backend Realm app code needed to add a new feature to tag chat message as high priority. This includes schema and code changes. You can find all of the steps to safely make such a schema change in a production app in [Migrating Your iOS App's Synced Realm Schema in Production](https://www.mongodb.com/developer/how-to/realm-sync-migration/).
+
+> The `V2-schema` branch contains all of the iOS and backend Realm app code needed to make the `ChatMessage.author` field non-optional. You can find all of the steps to safely make such a schema change in a production app in [Migrating Your iOS App's Synced Realm Schema in Production](https://www.mongodb.com/developer/how-to/realm-sync-migration/).
